@@ -28,7 +28,6 @@ public class HTMLGetter {
 			System.out.println(">> HTML 종료");
 
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
