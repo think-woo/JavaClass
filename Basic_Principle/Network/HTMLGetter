@@ -1,0 +1,35 @@
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.URL;
+
+//URL 접속을 이용하여 HTML 파일 가져오기
+public class HTMLGetter {
+
+	public static void main(String[] args) {
+
+		try {
+			URL url = new URL("https://www.google.co.kr/");
+
+			System.out.println("프로토콜: " + url.getProtocol());
+			System.out.println("주소: " + url.getHost());
+			System.out.println("포트번호: " + url.getPort());
+
+			System.out.println(">> HTML 시작");
+			InputStream		is	= url.openStream();
+			BufferedReader	br	= new BufferedReader(new InputStreamReader(is));
+			String			msg;
+			while ((msg = br.readLine()) != null) {
+				System.out.println(msg);
+			} //while
+			br.close();
+			is.close();
+
+			System.out.println(">> HTML 종료");
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+	}//main()
+}//Network class
